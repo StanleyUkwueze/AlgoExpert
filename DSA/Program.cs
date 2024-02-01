@@ -33,8 +33,8 @@ static int[] MoveZeroes(int[] arr)
     {
         if(arr[i] != 0)
         {
-            arr[counter] =arr[i];
-            counter++;
+            arr[counter++] =arr[i];
+           
         }
     }
 
@@ -48,3 +48,38 @@ static int[] MoveZeroes(int[] arr)
 
 var result = MoveZeroes(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 });
 foreach (var r in result) Console.WriteLine(r);
+
+ static int TrailingZeros(int n)
+{
+    //Solution
+    var product = 1;
+
+    for (int i = n; i >= 1; i--)
+    {
+        product *= i;
+    }
+
+    int counter = 0;
+
+    string str = product.ToString();
+
+    for (int i = str.Length - 1; i > 0; i--)
+    {
+       
+
+        if (str[i].Equals('0'))
+        {
+            counter++;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return counter;
+}
+
+var res = TrailingZeros(6);
+
+Console.WriteLine($"++++++={res}");
